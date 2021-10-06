@@ -1,0 +1,9 @@
+CREATE TABLE IF NOT EXISTS certificado (
+  cartId INT NOT NULL,
+  eventName VARCHAR(100) NOT NULL,
+  hours VARCHAR(5) NOT NULL,
+  city VARCHAR(100) NOT NULL,
+  idealizer VARCHAR(100) NOT NULL,
+  beginDate DATE NOT NULL,
+  endDate DATE NOT NULL,
+);
