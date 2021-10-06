@@ -1,38 +1,27 @@
  package com.certistack.project.domain;
 
 import java.io.Serializable;
-import java.util.Date;
 import java.util.Objects;
 
 public class Certificados implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
-	private String id;
+	private Integer id;
 	private String eventName;
-	private String hours;
+	private Integer hours;
 	private String country;
 	private String city;
 	private String idealizer;
-	private Date beginData;
-	private Date endDate;
+	private String beginData;
+	private String endDate;
 	private Boolean validation; 
-	
-	public Boolean getValidation() {
-		return validation;
+
+	public Certificados() {
+		
 	}
 
-	public void setValidation(Boolean validation) {
-		this.validation = validation;
-	}
-
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
-
-	public Certificados() {}
-
-	public Certificados(String id, String eventName, String hours, String country, String city, String idealizer,
-			Date beginData, Date endDate, Boolean validation) {
+	public Certificados(Integer id, String eventName, Integer hours, String country, String city, String idealizer,
+			String beginData, String endDate, Boolean validation) {
 		super();
 		this.id = id;
 		this.eventName = eventName;
@@ -45,11 +34,11 @@ public class Certificados implements Serializable {
 		this.validation = validation;
 	}
 
-	public String getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(String id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
@@ -61,11 +50,11 @@ public class Certificados implements Serializable {
 		this.eventName = eventName;
 	}
 
-	public String getHours() {
+	public Integer getHours() {
 		return hours;
 	}
 
-	public void setHours(String hours) {
+	public void setHours(Integer hours) {
 		this.hours = hours;
 	}
 
@@ -93,20 +82,32 @@ public class Certificados implements Serializable {
 		this.idealizer = idealizer;
 	}
 
-	public Date getBeginData() {
+	public String getBeginData() {
 		return beginData;
 	}
 
-	public void setBeginData(Date beginData) {
+	public void setBeginData(String beginData) {
 		this.beginData = beginData;
 	}
 
-	public Date getEndDate() {
+	public String getEndDate() {
 		return endDate;
 	}
 
-	public void setEndDate(Date endDate) {
+	public void setEndDate(String endDate) {
 		this.endDate = endDate;
+	}
+	
+	public Boolean getValidation() {
+		return validation;
+	}
+
+	public void setValidation(Boolean validation) {
+		this.validation = validation;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
 	}
 
 	@Override

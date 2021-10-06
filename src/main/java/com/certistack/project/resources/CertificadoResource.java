@@ -17,9 +17,11 @@ public class CertificadoResource {
 	public List<Certificados> listar() {
 		
 	Certificados cert = new Certificados();
+	Certificados cert2 = new Certificados(1, "teste", 30, "brasil", "florianopolis", "UFSC", "2021-09-09", "2021-09-09", false);
 	
 	List<Certificados> lista = new ArrayList<>();
 	lista.add(cert);
+	lista.add(cert2);
 		
 		return lista;
 	}
