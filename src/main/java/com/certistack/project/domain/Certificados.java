@@ -1,11 +1,18 @@
  package com.certistack.project.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import java.io.Serializable;
 import java.util.Objects;
 
+@Entity
 public class Certificados implements Serializable {
 	private static final long serialVersionUID = 1L;
-	
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String eventName;
 	private Integer hours;
@@ -15,13 +22,14 @@ public class Certificados implements Serializable {
 	private String beginData;
 	private String endDate;
 	private Boolean validation; 
+	private String type;
 
 	public Certificados() {
 		
 	}
 
 	public Certificados(Integer id, String eventName, Integer hours, String country, String city, String idealizer,
-			String beginData, String endDate, Boolean validation) {
+			String beginData, String endDate, Boolean validation, String type) {
 		super();
 		this.id = id;
 		this.eventName = eventName;
@@ -32,6 +40,15 @@ public class Certificados implements Serializable {
 		this.beginData = beginData;
 		this.endDate = endDate;
 		this.validation = validation;
+		this.type = type;
+	}
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
 	}
 
 	public Integer getId() {
