@@ -1,5 +1,7 @@
 package com.certistack.project.domain;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public class Estudante extends Usuarios {
@@ -8,6 +10,7 @@ public class Estudante extends Usuarios {
 	private String cpf;
 	private String areaEducacao;
 	private String lattes;
+	private List<Certificados> certificados = new ArrayList<>();
 	
 	public Estudante() {};
 	
@@ -45,6 +48,14 @@ public class Estudante extends Usuarios {
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
+	
+	public List<Certificados> getCertificados() {
+		return certificados;
+	}
+
+	public void setCertificados(List<Certificados> certificados) {
+		this.certificados = certificados;
+	}
 
 	@Override
 	public int hashCode() {
@@ -66,6 +77,8 @@ public class Estudante extends Usuarios {
 		return Objects.equals(areaEducacao, other.areaEducacao) && Objects.equals(cpf, other.cpf)
 				&& Objects.equals(lattes, other.lattes);
 	}
+
+	
 	
 	
 	

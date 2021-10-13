@@ -22,14 +22,15 @@ public class Certificados implements Serializable {
 	private String beginData;
 	private String endDate;
 	private Boolean validation; 
-	private String type;
-
+	private TipoCertificado type;
+	private Estudante estudante;
+	
 	public Certificados() {
 		
 	}
 
 	public Certificados(Integer id, String eventName, Integer hours, String country, String city, String idealizer,
-			String beginData, String endDate, Boolean validation, String type) {
+			String beginData, String endDate, Boolean validation, TipoCertificado type, Estudante estudante) {
 		super();
 		this.id = id;
 		this.eventName = eventName;
@@ -41,13 +42,14 @@ public class Certificados implements Serializable {
 		this.endDate = endDate;
 		this.validation = validation;
 		this.type = type;
+		this.setEstudante(estudante);
 	}
 
-	public String getType() {
+	public TipoCertificado getType() {
 		return type;
 	}
 
-	public void setType(String type) {
+	public void setType(TipoCertificado type) {
 		this.type = type;
 	}
 
@@ -127,6 +129,14 @@ public class Certificados implements Serializable {
 		return serialVersionUID;
 	}
 
+	public Estudante getEstudante() {
+		return estudante;
+	}
+
+	public void setEstudante(Estudante estudante) {
+		this.estudante = estudante;
+	};
+	
 	@Override
 	public int hashCode() {
 		return Objects.hash(id);
@@ -142,6 +152,8 @@ public class Certificados implements Serializable {
 			return false;
 		Certificados other = (Certificados) obj;
 		return Objects.equals(id, other.id);
-	};
+	}
+
+	
 	
 }
