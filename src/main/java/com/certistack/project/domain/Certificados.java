@@ -37,8 +37,9 @@ public class Certificados implements Serializable {
 		
 	}
 
-	public Certificados(Integer idCertificado, String eventName, Integer hours, String country, String city, String idealizer,
-			String beginData, String endDate, Boolean validation, Estudante estudante) {
+	public Certificados(Integer idCertificado, String eventName, Integer hours, String country, String city,
+			String idealizer, String beginData, String endDate, Boolean validation, TipoCertificado type,
+			Estudante estudante) {
 		super();
 		this.idCertificado = idCertificado;
 		this.eventName = eventName;
@@ -49,8 +50,11 @@ public class Certificados implements Serializable {
 		this.beginData = beginData;
 		this.endDate = endDate;
 		this.validation = validation;
-		this.setEstudante(estudante);
+		this.type = type;
+		this.estudante = estudante;
 	}
+
+
 
 	public TipoCertificado getType() {
 		return type;

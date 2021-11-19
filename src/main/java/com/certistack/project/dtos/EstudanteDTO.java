@@ -4,6 +4,8 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.validation.constraints.NotEmpty;
+
 import com.certistack.project.domain.Certificados;
 import com.certistack.project.domain.Instituicao;
 
@@ -12,16 +14,21 @@ public class EstudanteDTO  implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	private Integer idUsuario;
+	@NotEmpty(message="Preenchimento obrigatório")
 	private String name;
 	private String country;
 	private String phone;
+	@NotEmpty(message="Preenchimento obrigatório")
 	private String email;
+	@NotEmpty(message="Preenchimento obrigatório")
 	private String senha;
+	@NotEmpty(message="Preenchimento obrigatório")
 	private String cpf;
 	private String areaEducacao;
 	private String lattes;
 	private Integer hours;
 	private List<Certificados> certificados = new ArrayList<>();
+	@NotEmpty(message="Preenchimento obrigatório")
 	private Instituicao instituicao;
 	
 	public EstudanteDTO() {

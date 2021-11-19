@@ -3,16 +3,22 @@ package com.certistack.project.dtos;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.validation.constraints.NotEmpty;
+
 import com.certistack.project.domain.Estudante;
 
 public class InstituicaoDTO {
 
 	private Integer idUsuario;
+	@NotEmpty(message="Preenchimento obrigatório")
 	private String name;
 	private String country;
 	private String phone;
+	@NotEmpty(message="Preenchimento obrigatório")
 	private String email;
+	@NotEmpty(message="Preenchimento obrigatório")
 	private String senha;
+	@NotEmpty(message="Preenchimento obrigatório")
 	private String cnpj;
 	private String departamento;
 	private List<Estudante> estudantes = new ArrayList<>();

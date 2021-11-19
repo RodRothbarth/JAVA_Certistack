@@ -7,6 +7,8 @@ import com.certistack.project.services.CertificadoService;
 import java.net.URI;
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -38,7 +40,8 @@ public class CertificadoController {
     }
     
     @PostMapping
-    public ResponseEntity<Void> addCertificado(@RequestBody Certificados cert){
+    public ResponseEntity<Void> addCertificado(@Valid @RequestBody CertificadoDTO certDTO){
+    	Certificados cert = service.DTO(certDTO);
     	cert = service.addCertificado(cert);
     	URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
     			.buildAndExpand(cert.getIdCertificado()).toUri();
@@ -46,8 +49,9 @@ public class CertificadoController {
     }
     
     @PutMapping("/{id}")
-	public ResponseEntity<String> atualizarCertificado(@PathVariable(name = "idCertificado") Integer idcertificado, @RequestBody Certificados cert) {
+	public ResponseEntity<String> atualizarCertificado(@Valid @PathVariable(name = "idCertificado") Integer idcertificado, @RequestBody CertificadoDTO certDTO) {
 		try {
+			Certificados cert = service.DTO(certDTO);
 			cert.setIdCertificado(idcertificado);
 			service.atualizarCertificado(cert);
 			return new ResponseEntity<>(HttpStatus.CREATED);
