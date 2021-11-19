@@ -1,12 +1,19 @@
 package com.certistack.project.domain;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
+
+import javax.persistence.CascadeType;
+import javax.persistence.OneToMany;
 
 public class Instituicao extends Usuarios{
 	private static final long serialVersionUID = 1L;
 	
 	private String cnpj;
 	private String departamento;
+	@OneToMany(mappedBy = "instituicao", cascade=CascadeType.ALL)
+	private List<Estudante> estudantes = new ArrayList<>();
 	
 	public Instituicao() {}
 
@@ -32,6 +39,14 @@ public class Instituicao extends Usuarios{
 		this.departamento = departamento;
 	}
 
+	public List<Estudante> getEstudantes() {
+		return estudantes;
+	}
+
+	public void setEstudantes(List<Estudante> estudantes) {
+		this.estudantes = estudantes;
+	}
+
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
@@ -40,7 +55,7 @@ public class Instituicao extends Usuarios{
 	public int hashCode() {
 		final int prime = 31;
 		int result = super.hashCode();
-		result = prime * result + Objects.hash(cnpj, departamento);
+		result = prime * result + Objects.hash(cnpj, departamento, estudantes);
 		return result;
 	}
 
@@ -53,7 +68,8 @@ public class Instituicao extends Usuarios{
 		if (getClass() != obj.getClass())
 			return false;
 		Instituicao other = (Instituicao) obj;
-		return Objects.equals(cnpj, other.cnpj) && Objects.equals(departamento, other.departamento);
-	};
-	
+		return Objects.equals(cnpj, other.cnpj) && Objects.equals(departamento, other.departamento)
+				&& Objects.equals(estudantes, other.estudantes);
+	}
+
 }

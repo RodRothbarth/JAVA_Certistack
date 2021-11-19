@@ -1,6 +1,6 @@
 package com.certistack.project.services;
 
-import java.util.Optional;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,8 +14,11 @@ public class UsuarioService {
 	@Autowired
 	private UsuarioRepository usuarioRepository;
 	
-	public Usuarios bucarsUsuarios(Integer id) {
-		Optional<Usuarios> obj = usuarioRepository.findById(id);
-		return obj.orElse(null);
+	public List<Usuarios> listarUsuarios() {
+		 return usuarioRepository.findAll();
 	}
+	
+	 public void deletaUsuario(Integer idCertificado) {
+			usuarioRepository.deleteById(idCertificado);
+		}
 }

@@ -3,45 +3,46 @@ package com.certistack.project.domain;
 import java.io.Serializable;
 import java.util.Objects;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+@Entity
 public class Usuarios implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;
+	private Integer idUsuario;
 	private String name;
-	private Integer hours;
 	private String country;
 	private String phone;
 	private String email;
-	private String areaEducacao;
-	
+	@JsonIgnore
+	private String senha;
+		
 	public Usuarios() {}
 	
-	public Usuarios(Integer id, String name, Integer hours, String country, String phone, String email,
-			String areaEducacao) {
+	public Usuarios(Integer idUsuario, String name, String country, String phone, String email, String senha) {
 		super();
-		this.id = id;
+		this.senha = senha;
+		this.idUsuario = idUsuario;
 		this.name = name;
-		this.hours = hours;
 		this.country = country;
 		this.phone = phone;
-		this.email = email;
-		this.areaEducacao = areaEducacao;
-		
-		
+		this.email = email;		
 	}
 
-	public Integer getId() {
-		return id;
+	
+	public Integer getIdUsuario() {
+		return idUsuario;
 	}
 
-	public void setId(Integer id) {
-		this.id = id;
+	public void setIdUsuario(Integer idUsuario) {
+		this.idUsuario = idUsuario;
 	}
 
 	public String getName() {
@@ -52,13 +53,6 @@ public class Usuarios implements Serializable {
 		this.name = name;
 	}
 
-	public Integer getHours() {
-		return hours;
-	}
-
-	public void setHours(Integer hours) {
-		this.hours = hours;
-	}
 
 	public String getCountry() {
 		return country;
@@ -84,21 +78,23 @@ public class Usuarios implements Serializable {
 		this.email = email;
 	}
 
-	public String getAreaEducacao() {
-		return areaEducacao;
-	}
-
-	public void setAreaEducacao(String areaEducacao) {
-		this.areaEducacao = areaEducacao;
-	}
-
 	public static long getSerialversionuid() {
 		return serialVersionUID;
+	}
+	
+	
+
+	public String getSenha() {
+		return senha;
+	}
+
+	public void setSenha(String senha) {
+		this.senha = senha;
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(areaEducacao, country, email, hours, id, name, phone);
+		return Objects.hash(idUsuario);
 	}
 
 	@Override
@@ -110,15 +106,7 @@ public class Usuarios implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		Usuarios other = (Usuarios) obj;
-		return Objects.equals(areaEducacao, other.areaEducacao) && Objects.equals(country, other.country)
-				&& Objects.equals(email, other.email) && Objects.equals(hours, other.hours)
-				&& Objects.equals(id, other.id) && Objects.equals(name, other.name)
-				&& Objects.equals(phone, other.phone);
+		return Objects.equals(idUsuario, other.idUsuario);
 	}
-	
-	
-	
-	
-	
 
 }

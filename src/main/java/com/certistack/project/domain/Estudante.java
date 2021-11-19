@@ -4,21 +4,34 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+import javax.persistence.CascadeType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+
 public class Estudante extends Usuarios {
 	private static final long serialVersionUID = 1L;
 
 	private String cpf;
 	private String areaEducacao;
 	private String lattes;
+	private Integer hours;
+	@OneToMany(mappedBy = "estudante", cascade=CascadeType.ALL)
 	private List<Certificados> certificados = new ArrayList<>();
+	@ManyToOne
+	@JoinColumn(name="instituicao_id")
+	private Instituicao instituicao;
 	
-	public Estudante() {};
-	
-	public Estudante(String cpf, String areaEducacao, String lattes) {
+	public Estudante() {}
+
+	public Estudante(String cpf, String areaEducacao, String lattes, Integer hours, 
+			Instituicao instituicao) {
 		super();
 		this.cpf = cpf;
 		this.areaEducacao = areaEducacao;
 		this.lattes = lattes;
+		this.hours = hours;
+		this.instituicao = instituicao;
 	}
 
 	public String getCpf() {
@@ -45,10 +58,14 @@ public class Estudante extends Usuarios {
 		this.lattes = lattes;
 	}
 
-	public static long getSerialversionuid() {
-		return serialVersionUID;
+	public Integer getHours() {
+		return hours;
 	}
-	
+
+	public void setHours(Integer hours) {
+		this.hours = hours;
+	}
+
 	public List<Certificados> getCertificados() {
 		return certificados;
 	}
@@ -57,11 +74,23 @@ public class Estudante extends Usuarios {
 		this.certificados = certificados;
 	}
 
+	public Instituicao getInstituicao() {
+		return instituicao;
+	}
+
+	public void setInstituicao(Instituicao instituicao) {
+		this.instituicao = instituicao;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = super.hashCode();
-		result = prime * result + Objects.hash(areaEducacao, cpf, lattes);
+		result = prime * result + Objects.hash(areaEducacao, certificados, cpf, hours, instituicao, lattes);
 		return result;
 	}
 
@@ -74,10 +103,16 @@ public class Estudante extends Usuarios {
 		if (getClass() != obj.getClass())
 			return false;
 		Estudante other = (Estudante) obj;
-		return Objects.equals(areaEducacao, other.areaEducacao) && Objects.equals(cpf, other.cpf)
-				&& Objects.equals(lattes, other.lattes);
+		return Objects.equals(areaEducacao, other.areaEducacao) && Objects.equals(certificados, other.certificados)
+				&& Objects.equals(cpf, other.cpf) && Objects.equals(hours, other.hours)
+				&& Objects.equals(instituicao, other.instituicao) && Objects.equals(lattes, other.lattes);
 	}
 
+	
+
+	
+	
+	
 	
 	
 	

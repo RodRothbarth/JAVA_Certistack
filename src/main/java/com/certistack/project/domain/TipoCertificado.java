@@ -2,9 +2,9 @@ package com.certistack.project.domain;
 
 public enum TipoCertificado {
 
-	EXTRACURRICULAR(1, "Extracurricular"),
-	EVENTO(2, "Evento"),
-	OFICINA(3, "Oficina");
+	EXTRACURRICULAR(0, "Extracurricular"),
+	EVENTO(1, "Evento"),
+	OFICINA(2, "Oficina");
 	
 	private int cod;
 	private String descricao;

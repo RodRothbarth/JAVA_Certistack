@@ -19,4 +19,13 @@ public class InstituicaoService {
 		return obj.orElse(null);
 	}
 	
+	public Instituicao addInstituicao(Instituicao inst) {
+    	inst.setIdUsuario(null);
+    	return instituicaoRepository.save(inst);
+    }
+	
+	 public Instituicao atualizarInstituicao(Instituicao inst) {
+			return instituicaoRepository.save(inst);
+		}
+	
 }

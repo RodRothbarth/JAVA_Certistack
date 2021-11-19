@@ -17,4 +17,14 @@ public class EstudanteService {
 		Optional<Estudante> obj = estudanteRepository.findById(id);
 		return obj.orElse(null);
 	}
+	
+	public Estudante addEstudante(Estudante aluno) {
+    	aluno.setIdUsuario(null);
+    	return estudanteRepository.save(aluno);
+    }
+	
+	public Estudante atualizarEstudante(Estudante aluno) {
+			return estudanteRepository.save(aluno);
+	}
+	
 }
