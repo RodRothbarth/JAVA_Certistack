@@ -5,8 +5,10 @@ import java.util.List;
 import java.util.Objects;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 
+@Entity
 public class Instituicao extends Usuarios{
 	private static final long serialVersionUID = 1L;
 	

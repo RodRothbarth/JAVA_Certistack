@@ -5,10 +5,12 @@ import java.util.List;
 import java.util.Objects;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+@Entity
 public class Estudante extends Usuarios {
 	private static final long serialVersionUID = 1L;
 
@@ -19,7 +21,7 @@ public class Estudante extends Usuarios {
 	@OneToMany(mappedBy = "estudante", cascade=CascadeType.ALL)
 	private List<Certificados> certificados = new ArrayList<>();
 	@ManyToOne
-	@JoinColumn(name="instituicao_id")
+	@JoinColumn(name="instituicao")
 	private Instituicao instituicao;
 	
 	public Estudante() {}

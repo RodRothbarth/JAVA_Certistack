@@ -55,7 +55,7 @@ public class CertificadoController {
 			cert.setIdCertificado(idcertificado);
 			service.atualizarCertificado(cert);
 			return new ResponseEntity<>(HttpStatus.CREATED);
-		}catch (Exception e) {
+			}catch (Exception e) {
 			return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}

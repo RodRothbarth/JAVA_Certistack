@@ -30,7 +30,7 @@ public class Certificados implements Serializable {
 	@Enumerated(EnumType.ORDINAL)
 	private TipoCertificado type;
 	@ManyToOne
-	@JoinColumn(name="estudante_id")
+	@JoinColumn(name="estudante")
 	private Estudante estudante;
 	
 	public Certificados() {

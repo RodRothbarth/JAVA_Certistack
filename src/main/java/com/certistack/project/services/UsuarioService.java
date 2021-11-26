@@ -18,7 +18,7 @@ public class UsuarioService {
 		 return usuarioRepository.findAll();
 	}
 	
-	 public void deletaUsuario(Integer idCertificado) {
-			usuarioRepository.deleteById(idCertificado);
+	 public void deletaUsuario(Integer idUsuario) {
+			usuarioRepository.deleteById(idUsuario);
 		}
 }

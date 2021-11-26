@@ -40,8 +40,7 @@ public class CertificadoService {
 	}
     
     public Certificados DTO(CertificadoDTO cert) {
-    	return new Certificados(cert.getIdCertificado(), cert.getEventName(), cert.getHours(), cert.getCountry(), cert.getCity(), cert.getIdealizer(), cert.getBeginData(), cert.getEndDate(), cert.getValidation(), cert.getType(), cert.getEstudante());
-    	
+    	return new Certificados(cert.getIdCertificado(), cert.getEventName(), cert.getHours(), cert.getCountry(), cert.getCity(), cert.getIdealizer(), cert.getBeginData(), cert.getEndDate(), cert.getValidation(), cert.getType(), cert.getEstudante());	
     }
     
 
