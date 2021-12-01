@@ -15,10 +15,8 @@ public class CertificadoService {
     @Autowired
     private CertificadoRepository certificadoRepository;
     
-    public List<CertificadoDTO> listarCertificados() {
-		 return certificadoRepository.findAll().stream()
-				 .map(cert -> new CertificadoDTO(cert.getIdCertificado(), cert.getEventName(), cert.getHours(), cert.getCountry(), cert.getCity(), cert.getIdealizer(), cert.getBeginData(), cert.getEndDate(), cert.getValidation(), cert.getType(), cert.getEstudante()))
-				 .collect(Collectors.toList());
+    public List<Certificados> listarCertificados() {
+           return certificadoRepository.findAll();
 	}
 
     public Certificados buscarCertificado(Integer id){

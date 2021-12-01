@@ -12,22 +12,22 @@ public class CertificadoDTO implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	private Integer idCertificado;
-	@NotEmpty(message="Preenchimento obrigatório")
+
 	private String eventName;
 	@Min(1)
 	private Integer hours;
 	private String country;
 	private String city;
-	@NotEmpty(message="Preenchimento obrigatório")
+
 	private String idealizer;
-	@NotEmpty(message="Preenchimento obrigatório")
+
 	private String beginData;
-	@NotEmpty(message="Preenchimento obrigatório")
+	
 	private String endDate;
 	private Boolean validation;
-	@NotEmpty(message="Preenchimento obrigatório")
+	
 	private TipoCertificado type;
-	@NotEmpty(message="Preenchimento obrigatório")
+
 	private Estudante estudante;
 	
 	public CertificadoDTO() {

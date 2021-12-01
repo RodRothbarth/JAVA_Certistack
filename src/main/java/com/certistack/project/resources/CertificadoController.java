@@ -30,8 +30,8 @@ public class CertificadoController {
     private CertificadoService service;
     
     @GetMapping
-	public ResponseEntity<List<CertificadoDTO>> listarCertificados(){
-		return new ResponseEntity<List<CertificadoDTO>>(HttpStatus.CREATED);
+	public ResponseEntity<List<Certificados>> listarCertificados(){
+		return new ResponseEntity<List<Certificados>>(service.listarCertificados(), HttpStatus.OK);
 	}
 
     @GetMapping("/{id}")

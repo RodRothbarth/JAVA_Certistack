@@ -26,7 +26,7 @@ public class UsuarioController {
 	 
 	 @GetMapping
 		public ResponseEntity<List<Usuarios>> listarCertificados(){
-			return new ResponseEntity<List<Usuarios>>(HttpStatus.CREATED);
+			return new ResponseEntity<List<Usuarios>>(service.listarUsuarios(), HttpStatus.OK);
 		}
 	 
 	 @DeleteMapping("/{id}")

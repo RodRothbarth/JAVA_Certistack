@@ -23,7 +23,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	private Environment env;
 	
 	private static final String[] PUBLIC_MATCHERS = {
-			"colocar o path publico"
+			"/certificados/**",
+			"/usuario/**",
+			"/estudante/**",
+			"/instituicao/**"
 	};
 	
 	@Override

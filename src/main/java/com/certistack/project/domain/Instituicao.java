@@ -8,6 +8,8 @@ import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 @Entity
 public class Instituicao extends Usuarios{
 	private static final long serialVersionUID = 1L;
@@ -15,6 +17,7 @@ public class Instituicao extends Usuarios{
 	private String cnpj;
 	private String departamento;
 	@OneToMany(mappedBy = "instituicao", cascade=CascadeType.ALL)
+	@JsonBackReference
 	private List<Estudante> estudantes = new ArrayList<>();
 	
 	public Instituicao() {}

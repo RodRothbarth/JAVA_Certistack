@@ -11,6 +11,7 @@ import javax.persistence.Id;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
+// @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class Usuarios implements Serializable {
 	private static final long serialVersionUID = 1L;
 	

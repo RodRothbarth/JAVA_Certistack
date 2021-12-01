@@ -28,7 +28,7 @@ public class InstituicaoController {
 	
 	@GetMapping
 	public ResponseEntity<List<InstituicaoDTO>> listarCertificados(){
-		return new ResponseEntity<List<InstituicaoDTO>>(HttpStatus.CREATED);
+		return new ResponseEntity<List<InstituicaoDTO>>(HttpStatus.OK);
 	}
 	
 	@PostMapping
