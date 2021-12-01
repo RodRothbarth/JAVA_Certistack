@@ -7,10 +7,12 @@ import java.util.Objects;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
 @Entity
+@Table(name="instituicao")
 public class Instituicao extends Usuarios{
 	private static final long serialVersionUID = 1L;
 	
