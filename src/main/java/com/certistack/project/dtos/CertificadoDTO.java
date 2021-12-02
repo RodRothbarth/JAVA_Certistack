@@ -3,7 +3,7 @@ package com.certistack.project.dtos;
 import java.io.Serializable;
 
 import javax.validation.constraints.Min;
-import javax.validation.constraints.NotEmpty;
+
 
 import com.certistack.project.domain.Estudante;
 import com.certistack.project.domain.TipoCertificado;

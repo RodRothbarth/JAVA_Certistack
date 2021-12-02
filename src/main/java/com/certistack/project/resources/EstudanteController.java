@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -26,10 +27,16 @@ public class EstudanteController {
 	@Autowired
 	private EstudanteService service;
 	
+	@PreAuthorize("hasAnyRole('SCHOOL')")
 	@GetMapping
 	public ResponseEntity<List<EstudanteDTO>> listarCertificados(){
-		return new ResponseEntity<List<EstudanteDTO>>(HttpStatus.CREATED);
+		return new ResponseEntity<List<EstudanteDTO>>(HttpStatus.OK);
 	}
+	
+	@GetMapping("/{id}")
+    public ResponseEntity<?> buscarCertificadoPorId(@PathVariable Integer id) {
+        return new ResponseEntity<Estudante>(service.buscarEstudante(id), HttpStatus.OK);
+    }
 	
 	@PostMapping
     public ResponseEntity<Void> addEstudante(@RequestBody Estudante aluno){
@@ -39,6 +46,7 @@ public class EstudanteController {
     	return ResponseEntity.created(uri).build();
     }
 	
+	@PreAuthorize("hasAnyRole('STUDENT')")
 	@PutMapping("/{id}")
 	public ResponseEntity<String> atualizarEstudante(@PathVariable(name = "idEstudante") Integer idEstudante, @RequestBody Estudante aluno) {
 		try {

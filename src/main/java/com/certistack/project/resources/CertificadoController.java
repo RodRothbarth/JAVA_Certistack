@@ -12,6 +12,7 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -39,6 +40,7 @@ public class CertificadoController {
         return new ResponseEntity<Certificados>(service.buscarCertificado(id), HttpStatus.OK);
     }
     
+    @PreAuthorize("hasAnyRole('STUDENT')")
     @PostMapping
     public ResponseEntity<Void> addCertificado(@Valid @RequestBody CertificadoDTO certDTO){
     	Certificados cert = service.DTO(certDTO);
