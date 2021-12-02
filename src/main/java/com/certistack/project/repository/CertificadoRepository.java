@@ -14,8 +14,7 @@ import org.springframework.transaction.annotation.Transactional;
 public interface CertificadoRepository extends JpaRepository<Certificados, Integer> {
 	
 	@Transactional(readOnly=true)
-	List<Certificados> findByEstudante(Optional<Estudante> estudante);
 
-	List<Certificados> findByStudent(Optional<Estudante> estudante);
+	List<Certificados> findByEstudante(Optional<Estudante> estudante);
 
 }

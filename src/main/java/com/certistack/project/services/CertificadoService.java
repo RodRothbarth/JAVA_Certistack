@@ -56,7 +56,7 @@ public class CertificadoService {
     	}
     	
     	Optional<Estudante> estudante = estudanteRepository.findById(user.getIdUsuario());
-    	return certificadoRepository.findByStudent(estudante);
+    	return certificadoRepository.findByEstudante(estudante);
     	
     }
     
