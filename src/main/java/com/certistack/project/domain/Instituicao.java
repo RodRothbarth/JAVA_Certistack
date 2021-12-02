@@ -18,11 +18,14 @@ public class Instituicao extends Usuarios{
 	
 	private String cnpj;
 	private String departamento;
+	
 	@OneToMany(mappedBy = "instituicao", cascade=CascadeType.ALL)
 	@JsonBackReference
 	private List<Estudante> estudantes = new ArrayList<>();
 	
-	public Instituicao() {}
+	public Instituicao() {
+		addRole(Roles.SCHOOL);
+	}
 
 	public Instituicao(String cnpj, String departamento) {
 		super();

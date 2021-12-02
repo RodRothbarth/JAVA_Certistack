@@ -1,9 +1,15 @@
 package com.certistack.project.domain;
 
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
+import java.util.stream.Collectors;
 
+import javax.persistence.CollectionTable;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -24,6 +30,11 @@ public class Usuarios implements Serializable {
 	private String country;
 	private String phone;
 	private String email;
+	
+	@ElementCollection(fetch=FetchType.EAGER)
+	@CollectionTable(name="ROLES")
+	private Set<Integer> roles = new HashSet<>();
+	
 	@JsonIgnore
 	private String senha;
 		
@@ -85,7 +96,13 @@ public class Usuarios implements Serializable {
 		return serialVersionUID;
 	}
 	
+	public Set<Roles> getRoles(){
+		return roles.stream().map(role -> Roles.toEnum(role)).collect(Collectors.toSet());
+	}
 	
+	public void addRole(Roles role) {
+		roles.add(role.getCod());
+	}
 
 	public String getSenha() {
 		return senha;

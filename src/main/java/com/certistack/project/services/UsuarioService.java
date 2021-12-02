@@ -18,6 +18,10 @@ public class UsuarioService {
 		 return usuarioRepository.findAll();
 	}
 	
+	public Usuarios findByEmail(String email) {
+		return usuarioRepository.findByEmail(email);
+	}
+	
 	 public void deletaUsuario(Integer idUsuario) {
 			usuarioRepository.deleteById(idUsuario);
 		}

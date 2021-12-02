@@ -1,6 +1,7 @@
 package com.certistack.project.domain;
 
 import java.util.ArrayList;
+
 import java.util.List;
 import java.util.Objects;
 
@@ -20,13 +21,18 @@ public class Estudante extends Usuarios {
 	private String areaEducacao;
 	private String lattes;
 	private Integer hours;
+	
 	@OneToMany(mappedBy = "estudante", cascade=CascadeType.ALL)
 	private List<Certificados> certificados = new ArrayList<>();
+	
+	
 	@ManyToOne
 	@JoinColumn(name="instituicao")
 	private Instituicao instituicao;
 	
-	public Estudante() {}
+	public Estudante() {
+		addRole(Roles.ESTUDANTE);
+	}
 
 	public Estudante(String cpf, String areaEducacao, String lattes, Integer hours, 
 			Instituicao instituicao) {
@@ -37,6 +43,7 @@ public class Estudante extends Usuarios {
 		this.hours = hours;
 		this.instituicao = instituicao;
 	}
+
 
 	public String getCpf() {
 		return cpf;
@@ -84,10 +91,6 @@ public class Estudante extends Usuarios {
 
 	public void setInstituicao(Instituicao instituicao) {
 		this.instituicao = instituicao;
-	}
-
-	public static long getSerialversionuid() {
-		return serialVersionUID;
 	}
 
 	@Override
