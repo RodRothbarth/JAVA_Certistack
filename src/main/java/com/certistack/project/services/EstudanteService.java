@@ -7,8 +7,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.certistack.project.domain.Estudante;
+<<<<<<< HEAD
 import com.certistack.project.domain.Instituicao;
+=======
+import com.certistack.project.domain.Roles;
+>>>>>>> ea41f104b031746e1edb7d4f86878bfe033954a5
 import com.certistack.project.repository.EstudanteRepository;
+import com.certistack.project.security.UserSpring;
 
 @Service
 public class EstudanteService {
@@ -20,6 +25,11 @@ public class EstudanteService {
 	}
 	
 	public Estudante buscarEstudante(Integer id) {
+		
+		UserSpring user = UsuarioService.authenticated();
+		if(user ==null || user.hasRole(Roles.ESTUDANTE)&& !id.equals(user.getIdUsuario())) {
+			
+		}
 		Optional<Estudante> obj = estudanteRepository.findById(id);
 		return obj.orElse(null);
 	}

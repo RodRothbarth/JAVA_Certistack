@@ -73,5 +73,9 @@ public class UserSpring implements UserDetails{
 		// TODO Auto-generated method stub
 		return true;
 	}
+	
+	public boolean hasRole(Roles role) {
+		return getAuthorities().contains(new SimpleGrantedAuthority(role.getDescricao()));
+	}
 
 }
