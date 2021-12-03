@@ -36,11 +36,19 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	private JWTUtil jwtUtil;
 	
 	private static final String[] PUBLIC_MATCHERS = {
+			"/certificados/**",
 			"/login/**"
 			
 	};
 	
 	private static final String[] PUBLIC_MATCHERS_GET = {
+			"/certificados/**",
+			"/usuario/**",
+			"/estudante/**",
+			"/instituicao/**"
+	};
+	
+	private static final String[] PUBLIC_MATCHERS_DELETE = {
 			"/certificados/**",
 			"/usuario/**",
 			"/estudante/**",
@@ -61,6 +69,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		http.authorizeRequests()
 			.antMatchers(PUBLIC_MATCHERS_GET).permitAll()
 			.antMatchers(PUBLIC_MATCHERS_POST).permitAll()
+			.antMatchers(PUBLIC_MATCHERS_DELETE).permitAll()
 			.antMatchers(PUBLIC_MATCHERS).permitAll()
 			.anyRequest().authenticated();
 		http.addFilter(new JWTAuthenticationFilter(authenticationManager(), jwtUtil));

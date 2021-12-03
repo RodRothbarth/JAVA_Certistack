@@ -29,8 +29,8 @@ public class EstudanteController {
 	
 	@PreAuthorize("hasAnyRole('SCHOOL')")
 	@GetMapping
-	public ResponseEntity<List<EstudanteDTO>> listarCertificados(){
-		return new ResponseEntity<List<EstudanteDTO>>(HttpStatus.OK);
+	public ResponseEntity<List<Estudante>> listarCertificados(){
+		return new ResponseEntity<List<Estudante>>(service.listarEstudantes(), HttpStatus.OK);
 	}
 	
 	@GetMapping("/{id}")

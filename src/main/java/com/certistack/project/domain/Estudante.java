@@ -1,7 +1,6 @@
 package com.certistack.project.domain;
 
 import java.util.ArrayList;
-
 import java.util.List;
 import java.util.Objects;
 
@@ -12,8 +11,12 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Entity
 @Table(name="estudante")
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Estudante extends Usuarios {
 	private static final long serialVersionUID = 1L;
 

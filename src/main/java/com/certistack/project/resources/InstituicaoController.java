@@ -28,8 +28,8 @@ public class InstituicaoController {
 	private InstituicaoService service;
 	
 	@GetMapping
-	public ResponseEntity<List<InstituicaoDTO>> listarCertificados(){
-		return new ResponseEntity<List<InstituicaoDTO>>(HttpStatus.OK);
+	public ResponseEntity<List<Instituicao>> listarCertificados(){
+		return new ResponseEntity<List<Instituicao>>(service.listarInstituicoes(), HttpStatus.OK);
 	}
 	
 	@GetMapping("/{id}")

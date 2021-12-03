@@ -1,5 +1,6 @@
 package com.certistack.project.services;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +14,10 @@ public class InstituicaoService {
 	
 	@Autowired
 	private InstituicaoRepository instituicaoRepository;
+	
+	public List<Instituicao> listarInstituicoes() {
+		 return instituicaoRepository.findAll();
+	}
 	
 	public Instituicao buscarInstituicao(Integer id) {
 		Optional<Instituicao> obj = instituicaoRepository.findById(id);

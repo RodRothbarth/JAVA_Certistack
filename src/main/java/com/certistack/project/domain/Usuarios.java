@@ -34,8 +34,7 @@ public class Usuarios implements Serializable {
 	@ElementCollection(fetch=FetchType.EAGER)
 	@CollectionTable(name="ROLES")
 	private Set<Integer> roles = new HashSet<>();
-	
-	@JsonIgnore
+
 	private String senha;
 		
 	public Usuarios() {}
