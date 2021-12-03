@@ -50,28 +50,28 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	
 	private static final String[] PUBLIC_MATCHERS_DELETE = {
 			"/certificados/**",
-			"/usuario/**",
-			"/estudante/**",
-			"/instituicao/**"
 	};
 	
 	private static final String[] PUBLIC_MATCHERS_POST = {
 			"/usuario/**",
+			"/certificados/**",
 	};
 	
 	@Override
 	protected void configure(HttpSecurity http) throws Exception{
-		if(Arrays.asList(env.getActiveProfiles()).contains("test")) {
+		if(Arrays.asList(env.getActiveProfiles()).contains("")) {
 			http.headers().frameOptions().disable();
 		}
 		
-		http.cors().and().csrf().disable();
+		
 		http.authorizeRequests()
 			.antMatchers(PUBLIC_MATCHERS_GET).permitAll()
 			.antMatchers(PUBLIC_MATCHERS_POST).permitAll()
 			.antMatchers(PUBLIC_MATCHERS_DELETE).permitAll()
 			.antMatchers(PUBLIC_MATCHERS).permitAll()
-			.anyRequest().authenticated();
+			.anyRequest().authenticated()
+			.and().cors()
+			.and().csrf().disable();;
 		http.addFilter(new JWTAuthenticationFilter(authenticationManager(), jwtUtil));
 		http.addFilter(new JWTAuthorizationFilter(authenticationManager(), jwtUtil, userDetailsService));
 		http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);

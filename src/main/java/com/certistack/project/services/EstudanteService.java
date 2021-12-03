@@ -7,11 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.certistack.project.domain.Estudante;
-<<<<<<< HEAD
-import com.certistack.project.domain.Instituicao;
-=======
 import com.certistack.project.domain.Roles;
->>>>>>> ea41f104b031746e1edb7d4f86878bfe033954a5
 import com.certistack.project.repository.EstudanteRepository;
 import com.certistack.project.security.UserSpring;
 

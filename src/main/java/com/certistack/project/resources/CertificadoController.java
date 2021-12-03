@@ -40,11 +40,8 @@ public class CertificadoController {
         return new ResponseEntity<Certificados>(service.buscarCertificado(id), HttpStatus.OK);
     }
     
-<<<<<<< HEAD
-    //@PreAuthorize("hasAnyRole('STUDENT')")
-=======
-    @PreAuthorize("hasAnyRole('ESTUDANTE')")
->>>>>>> ea41f104b031746e1edb7d4f86878bfe033954a5
+
+//    @PreAuthorize("hasAnyRole('ESTUDANTE')")
     @PostMapping
     public ResponseEntity<Void> addCertificado(@Valid @RequestBody CertificadoDTO certDTO){
     	Certificados cert = service.DTO(certDTO);

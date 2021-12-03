@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.certistack.project.domain.Instituicao;
-import com.certistack.project.dtos.InstituicaoDTO;
 import com.certistack.project.services.InstituicaoService;
 
 @RestController
